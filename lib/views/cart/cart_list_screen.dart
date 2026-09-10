@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../controllers/cart_controller.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_routes.dart';
+import '../home/widgets/home_bottom_nav.dart';
 
 class CartListScreen extends StatelessWidget {
   const CartListScreen({super.key});
@@ -69,6 +70,7 @@ class CartListScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const HomeBottomNav(currentIndex: 2),
     );
   }
 }

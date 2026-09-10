@@ -6,7 +6,12 @@ import '../../../core/constants/app_routes.dart';
 
 
 class HomeBottomNav extends StatelessWidget {
-  const HomeBottomNav({super.key});
+  final int currentIndex;
+  
+  const HomeBottomNav({
+    super.key,
+    this.currentIndex = 0,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,28 +35,33 @@ class HomeBottomNav extends StatelessWidget {
               _NavItem(
                 icon: Icons.home_rounded,
                 label: 'Home',
-                selected: true,
-                onTap: () {},
+                selected: currentIndex == 0,
+                onTap: () {
+                  if (currentIndex != 0) Get.offAllNamed(AppRoutes.home);
+                },
               ),
               _NavItem(
                 icon: Icons.storefront_rounded,
                 label: 'Shops',
+                selected: currentIndex == 1,
                 onTap: () {
-                  Get.toNamed(AppRoutes.category);
+                  if (currentIndex != 1) Get.offNamed(AppRoutes.category);
                 },
               ),
               _NavItem(
                 icon: Icons.shopping_cart_outlined,
                 label: 'Cart',
+                selected: currentIndex == 2,
                 onTap: () {
-                  Get.toNamed(AppRoutes.cart);
+                  if (currentIndex != 2) Get.offNamed(AppRoutes.cart);
                 },
               ),
               _NavItem(
                 icon: Icons.person_outline_rounded,
                 label: 'Profile',
+                selected: currentIndex == 3,
                 onTap: () {
-                  // Add profile route when available.
+                  if (currentIndex != 3) Get.offNamed(AppRoutes.profile);
                 },
               ),
             ],

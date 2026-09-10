@@ -63,20 +63,23 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
           ),
         ),
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: IconButton(
-                    onPressed: () => Get.back(),
-                    icon: const Icon(Icons.arrow_back),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: IconButton(
+                      onPressed: () => Get.back(),
+                      icon: const Icon(Icons.arrow_back),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 160),
-                _buildCard(),
-              ],
+                  const SizedBox(height: 60), // reduced height to fit better with keyboard
+                  _buildCard(),
+                  const SizedBox(height: 24), // padding at bottom
+                ],
+              ),
             ),
           ),
         ),
@@ -123,8 +126,15 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
           ),
           const SizedBox(height: 8),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(6, (index) => _buildOtpBox(index)), // 4 -> 6
+            children: List.generate(
+              6,
+              (index) => Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                  child: _buildOtpBox(index),
+                ),
+              ),
+            ),
           ),
           const SizedBox(height: 16),
           Row(
@@ -192,7 +202,6 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
 
   Widget _buildOtpBox(int index) {
     return SizedBox(
-      width: 44, // reduced from 60 so 6 boxes fit comfortably in the row
       height: 56, // reduced from 60 to match
       child: TextField(
         controller: otpControllers[index],

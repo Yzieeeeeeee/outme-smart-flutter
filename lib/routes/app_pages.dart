@@ -11,6 +11,7 @@ import '../views/product/product_detail_screen.dart';
 import '../views/cart/cart_list_screen.dart';
 import '../views/cart/cart_details_screen.dart';
 import '../views/checkout/checkout_screen.dart';
+import '../views/profile/profile_screen.dart';
 import 'auth_binding.dart';
 import 'home_binding.dart';
 import 'cart_binding.dart';
@@ -30,5 +31,6 @@ class AppPages {
     GetPage(name: AppRoutes.cart, page: () => const CartListScreen(), binding: CartBinding()),
     GetPage(name: AppRoutes.storeCart, page: () => const CartDetailScreen(), binding: CartBinding()),
     GetPage(name: AppRoutes.checkout, page: () => const CheckoutScreen()),
+    GetPage(name: AppRoutes.profile, page: () => const ProfileScreen(), binding: AuthBinding()),
   ];
 }

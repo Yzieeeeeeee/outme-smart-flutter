@@ -21,13 +21,16 @@ class SendOtpScreen extends StatelessWidget {
           ),
         ),
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              children: [
-                const SizedBox(height: 200),
-                _buildCard(),
-              ],
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                children: [
+                  const SizedBox(height: 100), // reduced height slightly to fit better with keyboard
+                  _buildCard(),
+                  const SizedBox(height: 24), // padding at bottom
+                ],
+              ),
             ),
           ),
         ),

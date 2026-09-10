@@ -31,7 +31,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void _onNextPressed() {
     final isLastPage = _currentPage == _pages.length - 1;
     if (isLastPage) {
-      Get.offNamed('/login'); // temporary hardcoded route
+      Get.offNamed(AppRoutes.sendOtp);
     } else {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),

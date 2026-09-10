@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../controllers/home_controller.dart';
 import '../../core/constants/app_colors.dart';
 import '../widgets/section_state_view.dart';
+import '../home/widgets/home_bottom_nav.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -85,8 +86,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
 
   // ---------------------------------------------------------------------------
   // BUILD
-  // ---------------------------------------------------------------------------
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,18 +97,15 @@ class _CategoryScreenState extends State<CategoryScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildHeader(),
-
               const SizedBox(height: 16),
-
               _buildSearchBar(),
-
               const SizedBox(height: 16),
-
               _buildCategoryGrid(),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: const HomeBottomNav(currentIndex: 1),
     );
   }
 

@@ -48,4 +48,9 @@ class AuthController extends GetxController {
       otpVerifyStatus.value = AuthStatus.error;
     }
   }
+
+  Future<void> logout() async {
+    await _storageService.clearTokens();
+    Get.offAllNamed(AppRoutes.sendOtp);
+  }
 }
